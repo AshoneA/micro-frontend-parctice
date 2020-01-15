@@ -1,8 +1,14 @@
 <html>
   <head>
     <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="navBar"></div>
@@ -13,6 +19,22 @@
     <!-- Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <!-- import the single-spa config file -->
-    <script src="/dist/single-spa.config.js"></script>
+    <!-- <script src="/dist/single-spa.config.js"></script> -->
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "config": "http://localhost:8080/config.js",
+          "navbar": "http://localhost:8081/navbar.js",
+          "home": "http://localhost:8082/home.js"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/system.js"></script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/extras/amd.js"></script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/extras/named-exports.js"></script>
+    <script src="https://unpkg.com/systemjs@4.1.0/dist/extras/use-default.js"></script>
+    <script>
+      System.import('config')
+    </script>
   </body>
 </html>

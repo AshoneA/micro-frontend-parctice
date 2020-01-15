@@ -3,18 +3,12 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
-  entry: {
-    // Set the single-spa config as the project entry point
-    'single-spa.config': './single-spa.config.js'
-  },
+  entry: './src/index.js',
   output: {
-    // publicPath: '/dist/',
-    filename: 'config.js',
-    library: 'config',
+    filename: 'home.js',
+    library: 'home',
     libraryTarget: 'amd',
     path: path.resolve(__dirname, 'build')
-    // filename: '[name].js',
-    // path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -50,6 +44,9 @@ module.exports = {
   devtool: 'source-map',
   externals: [],
   devServer: {
-    historyApiFallback: true
+    port: 8082,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   }
 };

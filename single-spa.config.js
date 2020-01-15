@@ -1,3 +1,5 @@
+window.SystemJS = window.System
+
 import { registerApplication, start } from 'single-spa';
 
 function pathPrefix(prefix) {
@@ -8,7 +10,7 @@ function pathPrefix(prefix) {
 
 registerApplication(
   'navBar', 
-  () => import('./src/navBar/navBar.app.js').then(module => module.navBar),
+  () => SystemJS.import('navbar').then(module => module.navBar),
   () => true
 );
 
@@ -16,7 +18,7 @@ registerApplication(
   // Name of our single-spa application
   'home',
   // loadingFunction
-  () => import('./src/home/home.app.js'),
+  () => SystemJS.import('home'),
   // activityFunction
   location => location.pathname === '' || location.pathname === '/' || location.pathname.startsWith('/home')
 );
