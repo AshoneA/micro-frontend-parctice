@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: 'navbar.js',
     library: 'navbar',
-    libraryTarget: 'amd',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'build')
   },
   module: {
@@ -42,7 +42,7 @@ module.exports = {
     new CleanWebpackPlugin()
   ],
   devtool: 'source-map',
-  externals: [],
+  externals: ['react', 'react-dom', 'single-spa-react'],
   devServer: {
     port: 8081,
     headers: {
